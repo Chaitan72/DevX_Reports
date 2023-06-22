@@ -109,7 +109,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Codebeat\Production_CB\Production.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Codebeat\Production_CB\Production.Designer.cs">
+      <DependentUpon>Production.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codebeat\Recipe\CodebeatRecipe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Codebeat\Recipe\CodebeatRecipe.Designer.cs">
+      <DependentUpon>CodebeatRecipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database_.cs" />
+    <Compile Include="Filters.cs" />
     <Compile Include="Production\Production.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -129,6 +142,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Codebeat\Production_CB\Production.resx">
+      <DependentUpon>Production.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codebeat\Recipe\CodebeatRecipe.resx">
+      <DependentUpon>CodebeatRecipe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Production\Production.resx">
       <DependentUpon>Production.cs</DependentUpon>
     </EmbeddedResource>

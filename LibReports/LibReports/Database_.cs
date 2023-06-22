@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -12,7 +8,7 @@ namespace LibReports
     {
         private MySqlConnection conn;
         private string m_strServer;
-        public string m_strDatabase;
+        //public string m_strDatabase;
         private string m_strUserid;
         private string m_strPassword;
 
@@ -37,7 +33,7 @@ namespace LibReports
             {
                 //rn false;
             }
-            
+
         }
 
         private bool OpenConnection()
@@ -63,6 +59,92 @@ namespace LibReports
             catch (MySqlException ex)
             {
                 return false;
+            }
+        }
+
+        public void SelectMultiple(string qry, ref List<string> obj)
+        {
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(qry, conn);
+
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    obj.Add(dataReader.GetValue(0).ToString());
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+            }
+        }
+
+        public int SelectGetCount(string qry)
+        {
+            //string query = "SELECT Count(*) FROM model";
+            int Count = -1;
+
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                //create 
+                MySqlCommand cmd = new MySqlCommand(qry, conn);
+
+                //ExecuteScalar will return one value
+                Count = int.Parse(cmd.ExecuteScalar() + "");
+
+                //close Connection
+                this.CloseConnection();
+
+                return Count;
+            }
+            else
+            {
+                return Count;
+            }
+        }
+
+        public void Select(string qry, ref Dictionary<string, string> data)
+        {
+
+            //this.dict.Clear();
+            string query = qry;
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    for (int i = 0; i < dataReader.FieldCount; i++)
+                    {
+
+                        data.Add(dataReader.GetName(i), dataReader.GetValue(i).ToString());
+                    }
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+            }
+            else
+            {
+
             }
         }
     }

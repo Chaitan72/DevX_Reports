@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections;
-using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
 namespace LibReports.Production
@@ -10,7 +9,7 @@ namespace LibReports.Production
     {
         private PointF unboundPoint;
         private float currentWidth;
-
+        
         public Production()
         {
             InitializeComponent();
@@ -302,7 +301,7 @@ namespace LibReports.Production
 
         }
 
-        private void AddDefectSummeryCavityWise()
+        private void AddDefectSummeryCavityWise() 
         {
             this.UnboundDetail.HeightF += 700F;
 
@@ -343,42 +342,54 @@ namespace LibReports.Production
             /*-----Adding 1st row-----*/
             XRTableRow row0 = new XRTableRow();
 
+            XRTableCell r0Color = new XRTableCell();
             XRTableCell cell0 = new XRTableCell();
             XRTableCell cell1 = new XRTableCell();
+            r0Color.WidthF = 10F;
+            r0Color.BackColor = System.Drawing.Color.DarkOliveGreen;
             cell0.Text = "Area";
             cell0.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            cell0.WidthF = cell0.WidthF - 10F;
             cell1.Text = "----";
             cell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
 
-            row0.Cells.AddRange(new XRTableCell[] { cell0, cell1 });
+            row0.Cells.AddRange(new XRTableCell[] { r0Color, cell0, cell1 });
             BatchInformationTable.Rows.Add(row0);
             //
             //
             /*-----Adding 2nd row-----*/
             XRTableRow row1 = new XRTableRow();
 
+            XRTableCell r1Color = new XRTableCell();
             XRTableCell cell2 = new XRTableCell();
             XRTableCell cell3 = new XRTableCell();
+            r1Color.WidthF = 10F;
+            r1Color.BackColor = System.Drawing.Color.Aqua;
             cell2.Text = "Width";
             cell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            cell2.WidthF = cell2.WidthF - 10F;
             cell3.Text = "----";
             cell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
 
-            row1.Cells.AddRange(new XRTableCell[] { cell2, cell3 });
+            row1.Cells.AddRange(new XRTableCell[] { r1Color,cell2, cell3 });
             BatchInformationTable.Rows.Add(row1);
             //
             //
             /*-----Adding 3rd row-----*/
             XRTableRow row2 = new XRTableRow();
 
+            XRTableCell r2Color = new XRTableCell();
             XRTableCell cell4 = new XRTableCell();
             XRTableCell cell5 = new XRTableCell();
+            r2Color.WidthF = 10F;
+            r2Color.BackColor = System.Drawing.Color.MistyRose;
             cell4.Text = "Length";
             cell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            cell4.WidthF = cell4.WidthF - 10F;
             cell5.Text = "----";
             cell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
 
-            row2.Cells.AddRange(new XRTableCell[] { cell4, cell5 });
+            row2.Cells.AddRange(new XRTableCell[] { r2Color, cell4, cell5 });
             BatchInformationTable.Rows.Add(row2);
             //
             //
@@ -586,33 +597,42 @@ namespace LibReports.Production
             /*-----Adding 1st row-----*/
             XRTableRow row0 = new XRTableRow();
 
-            
-            XRTableCell cell0 = new XRTableCell();
-            XRTableCell cell1 = new XRTableCell();
+            XRTableCell r0C0= new XRTableCell();
+            XRTableCell r0C1 = new XRTableCell();
+            XRTableCell r0C2 = new XRTableCell();
             //colCell.WidthF = 10F;
             //colCell.BackColor = Color.Aqua;
             //colCell.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5);
             //cell0.WidthF =  (float)(this.currentWidth/2F) - colCell.WidthF;
-            cell0.Text = "Empty Blister";
-            cell0.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            cell1.Text = "----";
-            cell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            r0C0.WidthF = 10F;
+            r0C0.BackColor = System.Drawing.Color.Beige;
+            r0C1.Text = "Empty Blister";
+            r0C1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            r0C1.WidthF = r0C1.WidthF - 10F;
+            r0C2.Text = "----";
+            r0C2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
 
-            row0.Cells.AddRange(new XRTableCell[] { cell0, cell1 });
+            row0.Cells.AddRange(new XRTableCell[] { r0C0, r0C1, r0C2 });
             BatchInformationTable.Rows.Add(row0);
+            float a = r0C1.WidthF;
+            float b = r0C2.WidthF;
             //
             //
             /*-----Adding 1st row-----*/
             XRTableRow row1 = new XRTableRow();
 
-            XRTableCell cell2 = new XRTableCell();
-            XRTableCell cell3 = new XRTableCell();
-            cell2.Text = "ForeignObjectOnBaseFoil";
-            cell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            cell3.Text = "----";
-            cell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            XRTableCell r1C0 = new XRTableCell();
+            XRTableCell r1C1 = new XRTableCell();
+            XRTableCell r1C2 = new XRTableCell();
+            r1C0.WidthF = 10F;
+            r1C0.BackColor = System.Drawing.Color.CornflowerBlue;
+            r1C1.Text = "ForeignObjectOnBaseFoil";
+            r1C1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            r1C1.WidthF = r1C1.WidthF - 10F;
+            r1C2.Text = "----";
+            r1C2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
 
-            row1.Cells.AddRange(new XRTableCell[] { cell2, cell3 });
+            row1.Cells.AddRange(new XRTableCell[] { r1C0, r1C1, r1C2 });
             BatchInformationTable.Rows.Add(row1);
             //
             //
